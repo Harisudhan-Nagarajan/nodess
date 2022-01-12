@@ -2,7 +2,7 @@
 // const {mongoclint, MongoClient}=require("mongodb");
 import express from "express";
 import { MongoClient } from "mongodb";
-import dotenv from dotenv;
+import dotenv from "dotenv";
 
 dotenv.config();
 
@@ -99,8 +99,9 @@ const movies = [
   },
 ];
 
-
-const MONGO_URL = "mongodb://localhost";
+//env - environmental variable
+// const MONGO_URL = "mongodb://localhost";
+const MONGO_URL = process.env.MONGO_URL;
 async function createconnection() {
   const clint = new MongoClient(MONGO_URL);
   await clint.connect();
